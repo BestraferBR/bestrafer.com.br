@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>	
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Best_Inscrição (backupformulario.html)</title>
+  <style>
+    /* Reset simples */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 10px;
+      max-width: none;
+      margin: 0;
+	  background-color: #121212;
+	  color: #f0f0f0;
+	  width: 100%;
+	  max-width: none;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    fieldset {
+      border: 1px solid #ccc;
+      padding: 15px 20px 20px 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+    }
+
+    legend {
+      font-weight: bold;
+      padding: 0 10px;
+	  color: #ffffff;
+    }
+	
+	button {
+	  background-color: #0066cc;
+	}
+	button:hover {
+	  background-color: #004c99;
+	}
+	
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="url"],
+    input[type="number"],
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    /* Para radios lado a lado */
+    .radio-group {
+      display: flex;
+      gap: 20px;
+      margin-top: 8px;
+    }
+
+    .radio-group label {
+      display: flex;
+      align-items: center;
+      margin-top: 0;
+    }
+
+    .radio-group input[type="radio"] {
+      margin-right: 6px;
+    }
+
+    /* Checkbox inline */
+    .checkbox-inline {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .checkbox-inline input[type="checkbox"] {
+      margin-right: 8px;
+    }
+
+    /* Botão */
+    button {
+      background-color: #0066cc;
+      border: none;
+      color: white;
+      padding: 12px 25px;
+      font-size: 1.1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%;
+      margin-top: 15px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+	
+	input, select, textarea {
+	  background-color: #1e1e1e;
+	  color: #f0f0f0;
+	  border: 1px solid #444;
+	}
+
+	fieldset {
+	  border-color: #333;
+	  background-color: #1a1a1a;
+	}
+
+	
+    /* Responsividade */
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+    }
+
+    /* Seções ocultas por padrão */
+    .hidden {
+      display: none;
+    }
+
+	.botao-flutuante {
+	  position: sticky;
+	  bottom: 0;
+	  background-color: #1a1a1a; /* Combina com o tema escuro */
+	  padding: 1rem;
+	  text-align: center;
+	  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.4);
+	  z-index: 10;
+	  transition: background-color 0.3s ease, opacity 0.3s ease;
+	  opacity: 1; /* Visível normalmente */
+	}
+
+  </style>  
+  <!-- Scripts externos (coloque-os aqui, APÓS o style) -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.8/inputmask.min.js"></script>  -->
+  <!-- Apenas UM sistema de máscara é necessário. Se vai usar Inputmask, pode remover imask: -->
+  <script src="https://unpkg.com/imask"></script>
+</head>
+
+
+
+<body>
+  <h1>Best_Inscrição para Bolsa (Senac)</h1>
+  <form id="form">
+
+    <fieldset>
+      <legend>Dados de login</legend>
+      <label>Email:
+        <input type="email" name="email" required value="andrecsilva81@gmail.com" />
+      </label>
+
+      <label>Senha:
+        <input type="password" name="senha" required value="2facpsjqZN2ALs5" />
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Curso e Unidade</legend>
+      <label>URL do curso:
+        <input
+          type="url"
+          name="urlCurso"
+          required
+          value="https://www.sp.senac.br/cursos-tecnicos/curso-especializacao-tecnica-em-enfermagem-em-urgencia-e-emergencia?bolsa=true"
+        />
+      </label>
+
+      <label for="unidades-ofertas">Unidade de interesse:</label>
+      <select id="unidades-ofertas" name="unidade" required>
+        <option value="">Clique na unidade de interesse</option>
+        <optgroup label="Capital">
+          <option value="40823@23" data-unidade-friendly-url="senac-largo-treze">Largo Treze</option>
+          <option value="40902@25" data-unidade-friendly-url="senac-tiradentes">Tiradentes</option>
+          <option value="40905@27" data-unidade-friendly-url="senac-vila-prudente">Vila Prudente</option>
+          <option value="40802@101" data-unidade-friendly-url="senac-jabaquara">Jabaquara</option>
+        </optgroup>
+        <optgroup label="Interior">
+          <option value="40747@50" data-unidade-friendly-url="senac-aracatuba">Araçatuba</option>
+          <option value="40774@64" data-unidade-friendly-url="senac-franca">Franca</option>
+          <option value="40790@82" data-unidade-friendly-url="senac-itapetininga">Itapetininga</option>
+          <option value="40811@69" data-unidade-friendly-url="senac-jundiai">Jundiaí</option>
+          <option value="40878@60" data-unidade-friendly-url="senac-sao-carlos">São Carlos</option>
+          <option value="40884@61" data-unidade-friendly-url="senac-sao-jose-do-rio-preto">São José do Rio Preto</option>
+          <option value="40914@73" data-unidade-friendly-url="senac-piracicaba">Piracicaba</option>
+        </optgroup>
+        <optgroup label="Grande São Paulo e Litoral">
+          <option value="40838@39" data-unidade-friendly-url="senac-osasco">Osasco</option>
+          <option value="40896@131" data-unidade-friendly-url="senac-taboao-da-serra">Taboão da Serra</option>
+        </optgroup>
+      </select>
+    </fieldset>
+
+    <fieldset>
+      <legend>Dados Pessoais</legend>
+      <label>Estado Civil:
+		  <select name="estado_civil" id="cod_estado_civil" class="form-select" required aria-label="Estado civil">
+			<option disabled value="">Selecione</option>
+			<option value="1">SOLTEIRO(A)</option>
+			<option value="2">CASADO(A)</option>
+			<option value="3">VIÚVO(A)</option>
+			<option value="4">UNIÃO ESTÁVEL</option>
+			<option value="5">SEPARADO(A) JUDICIALMENTE</option>
+			<option value="6">DIVORCIADO(A)</option>
+		  </select>
+		</label>
+
+
+      <label>Raça:
+        <select name="raca" required>
+          <option disabled value="">Selecione</option>
+          <option value="1">Branca</option>
+          <option value="2">Preta</option>
+          <option value="3">Parda</option>
+          <option value="4">Amarela</option>
+          <option value="5">Indígena</option>
+        </select>
+      </label>
+
+      <label>DDD:
+        <input type="text" name="ddd" id="ddd" maxlength="2" required value="99" />
+      </label>
+
+      <label>Celular:
+        <input type="text" name="celular" id="celular" maxlength="9" required value="99503-1817" />
+      </label>
+
+      <div class="checkbox-inline">
+        <input type="checkbox" name="aceite" id="aceite" />
+        <label for="aceite" style="margin: 0;">Aceita os pré-requisitos</label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Situação profissional, familiar e domiciliar</legend>
+		<label>Você trabalha?
+      <div class="radio-group">
+        <label>
+          <input type="radio" name="situacao_trabalho" value="1" required /> Sim
+        </label>
+        <label>
+          <input type="radio" name="situacao_trabalho" value="2" /> Não
+        </label>
+      </div>
+
+      <div id="modalidade-container" class="hidden">
+        <label>Vínculo empregatício:
+          <select name="modalidade" id="modalidade">
+            <option value="">Selecione</option>
+            <option value="1">Autônomo/Prestador</option>
+            <option value="2">Carteira assinada</option>
+            <option value="3">Funcionário público</option>
+            <option value="4">Profissional liberal</option>
+            <option value="5">Próprio negócio</option>
+            <option value="6">Sem carteira</option>
+            <option value="7">Outros</option>
+          </select>
+        </label>
+
+        <label>Você é responsável pelo sustento da sua família?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="responsavel_renda" value="sim" /> Sim</label>
+          <label><input type="radio" name="responsavel_renda" value="nao" /> Não</label>
+        </div>
+      </div>
+      
+    </fieldset>
+
+    <fieldset>
+      <legend>Informações sobre as pessoas do mesmo grupo familiar que moram no mesmo domicílio</legend>
+	  <label>Renda (Caso não possua, preencha o campo abaixo com o valor o (zero)):
+        <input type="text" name="renda" id="renda" required />
+      </label>
+      <label>Quantos moradores adicionais vivem com você?
+        <input type="number" name="moradores" min="0" value="" />
+      </label>
+
+      <div id="moradoresExtras"></div>
+    </fieldset>
+
+    <div class="botao-flutuante">
+	  <button type="submit">SALVAR</button>
+	</div>
+  </form>
+
+  <script>
+    // Mostrar/esconder seção Modalidade e Responsável renda conforme situação trabalho
+    const situacaoRadios = document.querySelectorAll('input[name="situacao_trabalho"]');
+    const modalidadeContainer = document.getElementById('modalidade-container');
+
+    situacaoRadios.forEach(radio => {
+      radio.addEventListener('change', () => {
+        if (radio.value === '1' && radio.checked) {
+          modalidadeContainer.classList.remove('hidden');
+          modalidadeContainer.querySelector('select').setAttribute('required', 'required');
+          modalidadeContainer.querySelectorAll('input[name="responsavel_renda"]').forEach(r => r.setAttribute('required', 'required'));
+        } else if (radio.value === '2' && radio.checked) {
+          modalidadeContainer.classList.add('hidden');
+          modalidadeContainer.querySelector('select').removeAttribute('required');
+          modalidadeContainer.querySelectorAll('input[name="responsavel_renda"]').forEach(r => r.removeAttribute('required'));
+        }
+      });
+    });
+
+    // Dinâmico moradores extras
+    const form = document.getElementById('form');
+    const moradoresExtrasDiv = document.getElementById('moradoresExtras');
+    const moradoresInput = form.querySelector('input[name="moradores"]');
+
+    moradoresInput.addEventListener('input', () => {
+      moradoresExtrasDiv.innerHTML = '';
+      const qtd = parseInt(moradoresInput.value || 0);
+      for (let i = 0; i < qtd; i++) {
+        moradoresExtrasDiv.innerHTML += `
+          <fieldset>
+            <legend>Morador ${i + 1}</legend>
+            <label>Nome:
+              <input type="text" name="morador_nome_${i}" required />
+            </label>
+            <label>Parentesco:
+              <select name="morador_parentesco_${i}" required>
+                <option value="">Selecione</option>
+                <option value="1">Afilhado(a)</option>
+                <option value="2">Avô(ó)</option>
+                <option value="3">Bisavô(ó)</option>
+                <option value="4">Companheiro(a)</option>
+                <option value="5">Cônjuge</option>
+                <option value="6">Enteado(a)</option>
+                <option value="7">Filho(a)</option>
+                <option value="8">Genro</option>
+                <option value="9">Irmão(ã)</option>
+                <option value="10">Madrasta</option>
+                <option value="11">Mãe</option>
+                <option value="12">Neto(a)</option>
+                <option value="13">Nora</option>
+                <option value="14">Outros</option>
+                <option value="15">Padrasto</option>
+                <option value="16">Pai</option>
+                <option value="17">Primo(a)</option>
+                <option value="18">Sobrinho(a)</option>
+                <option value="19">Sogro(a)</option>
+                <option value="21">Tio(a)</option>
+              </select>
+            </label>
+            <label>Renda:
+              <input type="text" name="morador_renda_${i}" required />
+            </label>
+          </fieldset>
+        `;
+      }
+    });
+  </script>
+  
+  
+  <script>
+	  // Aplica máscaras com IMask
+	  IMask(document.getElementById('ddd'), {
+		mask: '00'
+	  });
+
+	  IMask(document.getElementById('celular'), {
+		mask: '00000-0000'
+	  });
+
+	  IMask(document.getElementById('renda'), {
+		mask: Number,
+		scale: 2,
+		signed: false,
+		thousandsSeparator: '.',
+		padFractionalZeros: true,
+		normalizeZeros: true,
+		radix: ',',
+		mapToRadix: ['.']
+	  });
+
+	</script>
+
+
+
+
+<script>
+  form.addEventListener('submit', async e => {
+  e.preventDefault();
+
+  const botao = form.querySelector('button[type="submit"]');
+  botao.disabled = true;
+  botao.textContent = '⏳ Enviando...';
+
+  const formData = new FormData(form);
+  const dados = {};
+
+  // Constrói objeto plano com os dados do formulário
+  formData.forEach((value, key) => {
+    if (key in dados) {
+      if (!Array.isArray(dados[key])) dados[key] = [dados[key]];
+      dados[key].push(value);
+    } else {
+      dados[key] = value;
+    }
+  });
+
+  // Checkbox
+  dados.aceite = form.querySelector('input[name="aceite"]').checked;
+
+  // Quantidade de moradores
+  dados.qtd_moradores = parseInt(dados.moradores || 0);
+  dados.moradores = dados.qtd_moradores; // agora é só o número
+
+  // Achata os moradores em campos individuais
+  for (let i = 0; i < dados.qtd_moradores; i++) {
+    const nome = dados[`morador_nome_${i}`] || '';
+    const parentesco = dados[`morador_parentesco_${i}`] || '';
+    const renda = dados[`morador_renda_${i}`] || '';
+
+    dados[`morador_nome_${i}`] = nome;
+    dados[`morador_parentesco_${i}`] = parentesco;
+    dados[`morador_renda_${i}`] = renda;
+  }
+
+  console.log(dados); // Debug
+
+  try {
+    const resposta = await fetch('/salvar-dados', {
+      method: 'POST',
+      body: JSON.stringify(dados),
+    });
+	
+	//const resposta = await fetch('/salvar-dados', {
+	//  method: 'POST',
+	//  headers: {
+	//	'Content-Type': 'application/json',
+	//  },
+	//  body: JSON.stringify(dados),
+	//});
+	
+
+    if (!resposta.ok) throw new Error();
+
+    alert('✅ Dados enviados com sucesso!');
+    //form.reset();
+    //moradoresExtras.innerHTML = '';
+    //modalidadeContainer.classList.add('hidden');
+	
+	
+	botao.textContent = '✅ Enviado!';
+
+  } catch (err) {
+    console.error(err);
+    alert('❌ Erro ao enviar os dados. Tente novamente mais tarde.');
+  }
+
+	// Inicia automação
+    //const respStart = await fetch('/start-automation', { method: 'POST' });
+    //if (!respStart.ok) {
+    //  alert('Erro ao iniciar automação');
+    //  return;
+    //}
+
+    //alert('Processo iniciado com sucesso!');
+	
+	finally {
+	  botao.disabled = false;
+	  botao.textContent = 'Salvar e Iniciar';
+	}
+  });
+     
+    
+</script>
+
+<div id="final-da-pagina" style="height: 1px;"></div>
+
+<script>
+  const botao = document.querySelector('.botao-flutuante');
+  const fim = document.getElementById('final-da-pagina');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        botao.style.opacity = '1'; // Mais transparente ao chegar no final
+      } else {
+        botao.style.opacity = '0.5';   // Totalmente visível normalmente
+      }
+    });
+  });
+
+  observer.observe(fim);
+</script>
+
+
+</body>
+</html>
+backupformulario

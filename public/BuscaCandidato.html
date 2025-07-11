@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Buscar Candidato</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+    }
+    input, button {
+      font-size: 1.1rem;
+      padding: 0.6rem;
+      margin-top: 0.5rem;
+      width: 100%;
+      max-width: 400px;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #007bff;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Buscar candidato pelo e-mail</h1>
+  <input type="email" id="email" placeholder="Digite o e-mail" required />
+  <button onclick="buscar()">Buscar e abrir formulário</button>
+
+  <script>
+    async function buscar() {
+      const email = document.getElementById('email').value.trim();
+      if (!email) {
+        alert('Por favor, digite um e-mail válido.');
+        return;
+      }
+
+      const url = 'https://script.google.com/macros/s/AKfycbzY86MPvFijXTnittWSERDcsevTSD59g-7P6V7poyld0CEYzLxB5SXqb4QagZMUPA6D/exec?email=' + encodeURIComponent(email);
+
+      try {
+        const res = await fetch(url);
+        const dados = await res.json();
+
+        if (dados.erro) {
+          alert('E-mail não registrado.');
+          return;
+        }
+
+        localStorage.setItem('dadosFormulario', JSON.stringify(dados));
+        window.open('http://localhost:3000/backupformulario.html', '_blank');
+      } catch (err) {
+        alert('Erro ao buscar os dados. Tente novamente.');
+        console.error(err);
+      }
+    }
+  </script>
+</body>
+</html>
